@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.zonky.test.db.AutoConfigureEmbeddedDatabase;
 import lombok.SneakyThrows;
-import org.example.MyApplication;
 import org.example.constant.UrlConstant;
 import org.example.dto.ErrorResponse;
 import org.example.dto.TransactionRequest;
@@ -141,7 +140,7 @@ class WalletControllerTest {
         var requestPath = MockMvcRequestBuilders.get(UrlConstant.API_V1_WALLETS_URL
                 + PATH_VARIABLE_WALLET_ID_URL, walletId);
         mockMvc.perform(requestPath)
-                .andExpect(status().isOk())
+                .andExpect(status().isNotFound())
                 .andExpect(content().json(mapper.writeValueAsString(response)));
     }
 }
