@@ -9,7 +9,6 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Version;
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -24,6 +23,4 @@ public class Wallet {
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private UUID id;
     private BigDecimal balance;
-    @Version
-    private Long version;
 }
